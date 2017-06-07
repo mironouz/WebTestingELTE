@@ -1,4 +1,4 @@
-package com.mironouz.patterns.pageobject;
+package com.mironouz.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

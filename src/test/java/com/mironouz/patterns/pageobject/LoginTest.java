@@ -1,5 +1,6 @@
 package com.mironouz.patterns.pageobject;
 
+import com.mironouz.pages.LoginPage;
 import com.mironouz.utility.Utility;
 import org.junit.After;
 import org.junit.Before;

@@ -1,9 +1,10 @@
-package com.mironouz.advanced.registration;
+package com.mironouz.pages;
 
-import com.mironouz.patterns.pageobject.PageObject;
+import com.mironouz.pages.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Dima on 6/7/2017.
@@ -25,7 +26,7 @@ public class RegistrationPage extends PageObject{
     @FindBy(xpath = "//div[@class='hero__register']//button[@type='submit']")
     private WebElement submitButton;
 
-    RegistrationPage(WebDriver driver){
+    public RegistrationPage(WebDriver driver){
         super(driver);
     }
 

@@ -1,13 +1,15 @@
-package com.mironouz.patterns.pageobject;
+package com.mironouz.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Dima on 6/7/2017.
  */
-public class LoginPage extends PageObject{
+public class LoginPage extends PageObject {
     @FindBy(className="text-input-input")
     private WebElement login;
 
@@ -26,7 +28,10 @@ public class LoginPage extends PageObject{
         this.password.sendKeys(password);
     }
 
-    public void login(){
+    public HomePage login(){
         loginButton.click();
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.titleIs("Files - Dropbox"));
+        return new HomePage(driver);
     }
 }

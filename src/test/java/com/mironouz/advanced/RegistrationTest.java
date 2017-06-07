@@ -1,5 +1,6 @@
-package com.mironouz.advanced.registration;
+package com.mironouz.advanced;
 
+import com.mironouz.pages.RegistrationPage;
 import com.mironouz.utility.Utility;
 import org.junit.After;
 import org.junit.Before;
