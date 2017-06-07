@@ -25,7 +25,7 @@ import static junit.framework.TestCase.assertTrue;
  */
 public class LoginTest {
     private WebDriver driver;
-    private Properties properties;
+    private Properties properties = Utility.readProperties();;
     private String url = properties.getProperty("url");
     private String correctLogin = properties.getProperty("correctLogin");
     private String correctPassword = properties.getProperty("correctPassword");
@@ -34,7 +34,6 @@ public class LoginTest {
 
     @Before
     public void setup() throws IOException {
-        properties = Utility.readProperties();
         System.setProperty("webdriver.chrome.driver", "webdriver/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get(url);

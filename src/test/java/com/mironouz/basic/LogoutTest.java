@@ -20,14 +20,13 @@ import static junit.framework.TestCase.assertTrue;
  */
 public class LogoutTest {
     private WebDriver driver;
-    private Properties properties;
+    private Properties properties = Utility.readProperties();;
     private String url = properties.getProperty("url");
     private String correctLogin = properties.getProperty("correctLogin");
     private String correctPassword = properties.getProperty("correctPassword");
 
     @Before
     public void setup(){
-        properties = Utility.readProperties();
         System.setProperty("webdriver.chrome.driver", "webdriver/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get(url);
