@@ -9,8 +9,8 @@
         <module name="webTestingElte" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="webTestingElte" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="webTestingElte" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
