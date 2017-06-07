@@ -12,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Properties;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -20,13 +22,18 @@ import static org.junit.Assert.assertEquals;
 public class FormAfterLoginTest {
     private WebDriver driver;
     private WebElement form;
+    private Properties properties;
+    private String url = properties.getProperty("url");
+    private String correctLogin = properties.getProperty("correctLogin");
+    private String correctPassword = properties.getProperty("correctPassword");
 
     @Before
     public void setup(){
+        properties = Utility.readProperties();
         System.setProperty("webdriver.chrome.driver", "webdriver/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get("http://dropbox.com");
-        Utility.login("WebTestingElte@mail.ru", "Elte2016", driver);
+        driver.get(url);
+        Utility.login(correctLogin, correctPassword, driver);
         form = new WebDriverWait(driver, 15)
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("search-bar__text-input")));
     }

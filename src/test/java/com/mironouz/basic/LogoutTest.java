@@ -11,6 +11,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Properties;
+
 import static junit.framework.TestCase.assertTrue;
 
 /**
@@ -18,17 +20,22 @@ import static junit.framework.TestCase.assertTrue;
  */
 public class LogoutTest {
     private WebDriver driver;
+    private Properties properties;
+    private String url = properties.getProperty("url");
+    private String correctLogin = properties.getProperty("correctLogin");
+    private String correctPassword = properties.getProperty("correctPassword");
 
     @Before
     public void setup(){
+        properties = Utility.readProperties();
         System.setProperty("webdriver.chrome.driver", "webdriver/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get("http://dropbox.com");
+        driver.get(url);
     }
 
     @Test
     public void testLogout(){
-        Utility.login("WebTestingElte@mail.ru", "Elte2016", driver);
+        Utility.login(correctLogin, correctPassword, driver);
         WebElement smile = new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("mc-avatar-image")));
         smile.click();

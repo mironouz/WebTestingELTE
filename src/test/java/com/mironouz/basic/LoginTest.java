@@ -26,21 +26,23 @@ import static junit.framework.TestCase.assertTrue;
 public class LoginTest {
     private WebDriver driver;
     private Properties properties;
+    private String url = properties.getProperty("url");
+    private String correctLogin = properties.getProperty("correctLogin");
+    private String correctPassword = properties.getProperty("correctPassword");
+    private String fakeLogin = properties.getProperty("fakeLogin");
+    private String fakePassword = properties.getProperty("fakePassword");
 
     @Before
     public void setup() throws IOException {
-        FileInputStream inputStream  = new FileInputStream("src/config.properties");
-        properties = new Properties();
-        properties.load(inputStream);
-        inputStream.close();
+        properties = Utility.readProperties();
         System.setProperty("webdriver.chrome.driver", "webdriver/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get(properties.getProperty("url"));
+        driver.get(url);
     }
 
     @Test
     public void testAuthenticationFailureWhenProvidingBadCredentials() throws TimeoutException {
-        Utility.login(properties.getProperty("fakeLogin"), properties.getProperty("fakePassword"), driver);
+        Utility.login(fakeLogin, fakePassword, driver);
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.textToBe(By.className("error-message"), "Invalid email or password"));
         assertFalse(driver.getCurrentUrl().endsWith("home"));
@@ -48,7 +50,7 @@ public class LoginTest {
 
     @Test
     public void testAuthenticationSuccessWhenProvidingCorrectCredentials() throws TimeoutException {
-        Utility.login(properties.getProperty("correctLogin"), properties.getProperty("correctPassword"), driver);
+        Utility.login(correctLogin, correctPassword, driver);
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.titleIs("Files - Dropbox"));
         assertTrue(driver.getCurrentUrl().endsWith("home"));
@@ -58,5 +60,4 @@ public class LoginTest {
     public void tearDown(){
         driver.close();
     }
-
 }
