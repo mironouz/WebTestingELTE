@@ -6,19 +6,20 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by Dima on 6/7/2017.
+ * Action bot pattern
  */
-public class ActionBot {
+class ActionBot {
     private final WebDriver driver;
 
-    public ActionBot(WebDriver driver) {
+    ActionBot(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void click(By locator) {
+    void click(By locator) {
         driver.findElement(locator).click();
     }
 
-    public void type(By locator, String text) {
+    void type(By locator, String text) {
         WebElement element = driver.findElement(locator);
         element.clear();
         element.sendKeys(text + "\n");

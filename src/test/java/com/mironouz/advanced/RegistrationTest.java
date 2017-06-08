@@ -17,15 +17,16 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Dima on 6/7/2017.
+ * Registration page
  */
 public class RegistrationTest {
     private WebDriver driver;
     private RegistrationPage registrationPage;
-    private Properties properties = Utility.readProperties();;
-    private String url = properties.getProperty("url");
-    private String fullname = properties.getProperty("fullname");
-    private String wrongEmail = properties.getProperty("wrongEmail");
-    private String password = properties.getProperty("correctPassword");
+    private final Properties properties = Utility.readProperties();
+    private final String url = properties.getProperty("url");
+    private final String fullname = properties.getProperty("fullname");
+    private final String wrongEmail = properties.getProperty("wrongEmail");
+    private final String password = properties.getProperty("correctPassword");
 
     @Before
     public void setup() throws IOException {

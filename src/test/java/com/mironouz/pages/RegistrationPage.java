@@ -4,10 +4,10 @@ import com.mironouz.pages.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Dima on 6/7/2017.
+ * Page Object for registration page
  */
 public class RegistrationPage extends PageObject{
 

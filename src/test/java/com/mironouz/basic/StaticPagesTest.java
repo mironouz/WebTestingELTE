@@ -11,18 +11,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Properties;
 
-import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Dima on 6/7/2017.
+ * tests for static pages
  */
 public class StaticPagesTest {
     private WebDriver driver;
     private Properties properties = Utility.readProperties();
-    private String aboutUrl = properties.getProperty("static.about");
-    private String contactUrl = properties.getProperty("static.contact");
-    private String brandingUrl = properties.getProperty("static.branding");
+    private final String aboutUrl = properties.getProperty("static.about");
+    private final String contactUrl = properties.getProperty("static.contact");
+    private final String brandingUrl = properties.getProperty("static.branding");
 
     @Before
     public void setup(){

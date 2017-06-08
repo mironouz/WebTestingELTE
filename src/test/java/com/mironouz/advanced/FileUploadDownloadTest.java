@@ -20,16 +20,17 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Dima on 6/7/2017.
+ * File upload Test and Multiple Files Download Test
  */
 public class FileUploadDownloadTest {
     private WebDriver driver;
     private HomePage homePage;
-    private Properties properties = Utility.readProperties();;
-    private String url = properties.getProperty("loginpage");
-    private String correctLogin = properties.getProperty("correctLogin");
-    private String correctPassword = properties.getProperty("correctPassword");
-    private String downloadFilepath = System.getProperty("user.dir");
-    private File destination = new File(downloadFilepath);
+    private final Properties properties = Utility.readProperties();
+    private final String url = properties.getProperty("loginpage");
+    private final String correctLogin = properties.getProperty("correctLogin");
+    private final String correctPassword = properties.getProperty("correctPassword");
+    private final String downloadFilepath = System.getProperty("user.dir");
+    private final File destination = new File(downloadFilepath);
 
     @Before
     public void setup() throws IOException {

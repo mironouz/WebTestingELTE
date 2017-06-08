@@ -9,8 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -19,11 +17,12 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Dima on 6/7/2017.
+ * CookieTest
  */
 public class CookieTest {
     private WebDriver driver;
-    private Properties properties = Utility.readProperties();;
-    private String url = properties.getProperty("url");
+    private final Properties properties = Utility.readProperties();
+    private final String url = properties.getProperty("url");
 
     @Before
     public void setup() throws IOException {

@@ -7,13 +7,13 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Properties;
 
 /**
  * Created by Dima on 6/7/2017.
+ * some utility functions
  */
 public class Utility {
     public static void login(String login, String password, WebDriver driver){
@@ -28,8 +28,6 @@ public class Utility {
         try {
             FileInputStream inputStream  = new FileInputStream("src/config.properties");
             properties.load(inputStream);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

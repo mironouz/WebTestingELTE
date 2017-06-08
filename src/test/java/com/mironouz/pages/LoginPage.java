@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Dima on 6/7/2017.
+ * Page Object for loginpage
  */
 public class LoginPage extends PageObject {
     @FindBy(className="text-input-input")

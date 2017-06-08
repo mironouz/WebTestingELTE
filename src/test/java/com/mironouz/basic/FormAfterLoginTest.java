@@ -18,14 +18,15 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Dima on 6/7/2017.
+ * Search files test
  */
 public class FormAfterLoginTest {
     private WebDriver driver;
     private WebElement form;
-    private Properties properties = Utility.readProperties();;
-    private String url = properties.getProperty("url");
-    private String correctLogin = properties.getProperty("correctLogin");
-    private String correctPassword = properties.getProperty("correctPassword");
+    private final Properties properties = Utility.readProperties();
+    private final String url = properties.getProperty("url");
+    private final String correctLogin = properties.getProperty("correctLogin");
+    private final String correctPassword = properties.getProperty("correctPassword");
 
     @Before
     public void setup(){

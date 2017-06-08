@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Created by Dima on 6/7/2017.
+ * Page Object for homepage
  */
 
 
@@ -38,7 +39,7 @@ public class HomePage extends PageObject {
     @FindBy(className = "primary-action-menu__button")
     private WebElement downloadButton;
 
-    public HomePage(WebDriver driver){
+    HomePage(WebDriver driver){
         super(driver);
     }
 
@@ -63,7 +64,7 @@ public class HomePage extends PageObject {
         acceptDeleteButton.click();
     }
 
-    public void chooseFile(int num){
+    private void chooseFile(int num){
         driver.findElement(By.xpath("//div[2]/ul/li[" + num + "]//button")).click();
     }
 

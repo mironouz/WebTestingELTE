@@ -14,14 +14,14 @@ import static junit.framework.TestCase.assertTrue;
 
 /**
  * Created by Dima on 6/7/2017.
+ * Action bot pattern Login Test
  */
 public class LoginTest {
     private WebDriver driver;
-    private ActionBot actionBot;
-    private Properties properties = Utility.readProperties();;
-    private String url = properties.getProperty("loginpage");
-    private String fakeLogin = properties.getProperty("fakeLogin");
-    private String fakePassword = properties.getProperty("fakePassword");
+    private final Properties properties = Utility.readProperties();
+    private final String url = properties.getProperty("loginpage");
+    private final String fakeLogin = properties.getProperty("fakeLogin");
+    private final String fakePassword = properties.getProperty("fakePassword");
 
     @Before
     public void setup(){
@@ -32,7 +32,7 @@ public class LoginTest {
 
     @Test
     public void testAuthenticationFailureWhenProvidingBadCredentials(){
-        actionBot = new ActionBot(driver);
+        ActionBot actionBot = new ActionBot(driver);
         actionBot.type(By.className("text-input-input"), fakeLogin);
         actionBot.type(By.className("password-input"), fakePassword);
         actionBot.click(By.className("login-button"));

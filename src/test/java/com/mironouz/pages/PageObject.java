@@ -5,11 +5,12 @@ import org.openqa.selenium.support.PageFactory;
 
 /**
  * Created by Dima on 6/7/2017.
+ * Parent for all Page Objects
  */
 
 public class PageObject {
-    protected WebDriver driver;
-    public PageObject(WebDriver driver){
+    protected final WebDriver driver;
+    PageObject(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

@@ -15,13 +15,14 @@ import static junit.framework.TestCase.assertTrue;
 
 /**
  * Created by Dima on 6/7/2017.
+ * Page Object pattern Login Test
  */
 public class LoginTest {
     private WebDriver driver;
-    private Properties properties = Utility.readProperties();;
-    private String url = properties.getProperty("loginpage");
-    private String fakeLogin = properties.getProperty("fakeLogin");
-    private String fakePassword = properties.getProperty("fakePassword");
+    private final Properties properties = Utility.readProperties();
+    private final String url = properties.getProperty("loginpage");
+    private final String fakeLogin = properties.getProperty("fakeLogin");
+    private final String fakePassword = properties.getProperty("fakePassword");
 
     @Before
     public void setup() throws IOException {

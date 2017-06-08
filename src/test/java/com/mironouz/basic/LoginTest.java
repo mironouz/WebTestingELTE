@@ -12,9 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 import static junit.framework.TestCase.assertFalse;
@@ -22,15 +20,16 @@ import static junit.framework.TestCase.assertTrue;
 
 /**
  * Created by Dima on 6/7/2017.
+ * Simple login test
  */
 public class LoginTest {
     private WebDriver driver;
-    private Properties properties = Utility.readProperties();;
-    private String url = properties.getProperty("url");
-    private String correctLogin = properties.getProperty("correctLogin");
-    private String correctPassword = properties.getProperty("correctPassword");
-    private String fakeLogin = properties.getProperty("fakeLogin");
-    private String fakePassword = properties.getProperty("fakePassword");
+    private final Properties properties = Utility.readProperties();
+    private final String url = properties.getProperty("url");
+    private final String correctLogin = properties.getProperty("correctLogin");
+    private final String correctPassword = properties.getProperty("correctPassword");
+    private final String fakeLogin = properties.getProperty("fakeLogin");
+    private final String fakePassword = properties.getProperty("fakePassword");
 
     @Before
     public void setup() throws IOException {
