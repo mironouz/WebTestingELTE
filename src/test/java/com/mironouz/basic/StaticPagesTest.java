@@ -48,7 +48,7 @@ public class StaticPagesTest {
     public void testBrandingPage()
     {
         driver.get(brandingUrl);
-        assertEquals(driver.getTitle(), "Logo & Branding - Dropbox ");
+        assertEquals(driver.getTitle(), "Logo & Branding - Dropbox");
     }
 
     @After

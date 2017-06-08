@@ -34,7 +34,7 @@ public class LoginTest {
     public void testAuthenticationFailureWhenProvidingBadCredentials(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.enterCredentials(fakeLogin, fakePassword);
-        loginPage.login();
+        loginPage.clickLogin();
         assertTrue(driver.getCurrentUrl().endsWith("login"));
     }
 

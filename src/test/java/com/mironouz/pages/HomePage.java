@@ -35,13 +35,17 @@ public class HomePage extends PageObject {
     @FindBy(className = "button-primary")
     private WebElement acceptDeleteButton;
 
+    @FindBy(className = "primary-action-menu__button")
+    private WebElement downloadButton;
+
     public HomePage(WebDriver driver){
         super(driver);
     }
 
     public void uploadFile(String path){
         uploadFilesButton.click();
-        basicUploaderButton.click();
+        new WebDriverWait(driver,10)
+                .until(ExpectedConditions.visibilityOf(basicUploaderButton)).click();
         fileForm.sendKeys(path);
     }
 
@@ -57,5 +61,14 @@ public class HomePage extends PageObject {
         new WebDriverWait(driver,10)
                 .until(ExpectedConditions.visibilityOf(acceptDeleteButton));
         acceptDeleteButton.click();
+    }
+
+    public void chooseFile(int num){
+        driver.findElement(By.xpath("//div[2]/ul/li[" + num + "]//button")).click();
+    }
+
+    public void downloadAllFiles(){
+        for(int i = 1; i <= countOfFiles(); i++) chooseFile(i);
+        downloadButton.click();
     }
 }

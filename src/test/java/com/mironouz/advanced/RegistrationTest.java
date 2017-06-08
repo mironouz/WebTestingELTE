@@ -25,7 +25,6 @@ public class RegistrationTest {
     private String url = properties.getProperty("url");
     private String fullname = properties.getProperty("fullname");
     private String wrongEmail = properties.getProperty("wrongEmail");
-    private String usedEmail = properties.getProperty("correctLogin");
     private String password = properties.getProperty("correctPassword");
 
     @Before

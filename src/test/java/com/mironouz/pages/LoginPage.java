@@ -34,4 +34,8 @@ public class LoginPage extends PageObject {
                 .until(ExpectedConditions.titleIs("Files - Dropbox"));
         return new HomePage(driver);
     }
+
+    public void clickLogin(){
+        loginButton.click();
+    }
 }

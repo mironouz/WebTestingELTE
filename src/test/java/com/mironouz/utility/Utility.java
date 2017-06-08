@@ -2,10 +2,14 @@ package com.mironouz.utility;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Properties;
 
 /**
@@ -30,5 +34,19 @@ public class Utility {
             e.printStackTrace();
         }
         return properties;
+    }
+
+    public static DesiredCapabilities customDownloadPath(String path){
+        HashMap<String, Object> chromePrefs = new HashMap<>();
+        chromePrefs.put("download.default_directory", path);
+        ChromeOptions options = new ChromeOptions();
+        HashMap<String, Object> chromeOptionsMap = new HashMap<>();
+        options.setExperimentalOption("prefs", chromePrefs);
+        options.addArguments("--test-type");
+        DesiredCapabilities cap = DesiredCapabilities.chrome();
+        cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
+        cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+        cap.setCapability(ChromeOptions.CAPABILITY, options);
+        return cap;
     }
 }
